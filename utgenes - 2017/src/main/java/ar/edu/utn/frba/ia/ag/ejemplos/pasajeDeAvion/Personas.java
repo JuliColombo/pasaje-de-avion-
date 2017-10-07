@@ -157,6 +157,9 @@ public class Personas extends Individuo{
 //        7. La persona que viaja a África mira Desperate Housewives
 //        8. El jugador de 14 años está al final de la cola
 //        9. Amy mira a Eastenders
+            if(getAmy().getPrograma() == "Eastenders"){
+                sumarAptitud(valor);
+            }
 //        10. La persona que va a Italia tiene el pelo largo
 //        11. Keeley vive en un pueblo
 //        12. El joven de 46 años es calvo
