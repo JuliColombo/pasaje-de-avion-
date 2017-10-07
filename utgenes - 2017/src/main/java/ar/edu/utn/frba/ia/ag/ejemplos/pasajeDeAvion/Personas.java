@@ -138,11 +138,18 @@ public class Personas extends Individuo{
                                                              "Neigbors"));
     }
 
+    public double sumarAptitud(double valor) {
+        return valor + 10;
+    }
+
     public double aptitud() {
 
         double valor = 0;
 //        1. La persona que está en el medio mira Desperate Housewives
 //        2. Bob es el primero en la cola
+            if(getBob().getPosicion() == 1){
+                sumarAptitud(valor);
+            }
 //        3. La persona que ve a los Simpson está al lado de la persona que vive en un albergue juvenil
 //        4. La persona que va a África está detrás de Rachael
 //        5. La persona que vive en un pueblo tiene 52 años
@@ -162,7 +169,7 @@ public class Personas extends Individuo{
 //        19. El de 81 años vive en una granja
 //        20. La persona que viaja a Francia vive en una ciudad
 //        21. Eilish no está al lado de la persona con el pelo liso
-        
+
         return valor;
     }
 
