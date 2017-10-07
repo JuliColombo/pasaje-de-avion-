@@ -141,114 +141,31 @@ public class Personas extends Individuo{
     public double aptitud() {
 
         double valor = 0;
-        //-----PISTAS-----
-        //2)Kanguela(3) no negoci� con Lacourt.
-        if (this.getLacourt().getHallo() != 3){valor += 15;}
-
-        //3)Burke(1) lo vendi� a un conde(2).
-        if (((this.getGarcia().getHallo() == 1) && (this.getGarcia().getEntrego() == 2)) ||
-                ((this.getGianuzzi().getHallo() == 1) && (this.getGianuzzi().getEntrego() == 2)) ||
-                ((this.getLacourt().getHallo() == 1) && (this.getLacourt().getEntrego() == 2)) ||
-                ((this.getSiemann().getHallo() == 1) && (this.getSiemann().getEntrego() == 2)) ||
-                ((this.getSmith().getHallo() == 1) && (this.getSmith().getEntrego() == 2)))
-        {valor += 15;}
-
-        //4)El coleccionista chino Ming-Chu(4) se lo compr� al filipino Garc�a...
-	/*	if (((this.getGianuzzi().getHallo() == 4) && (this.getGianuzzi().getAnio() == this.getGarcia().getAnio()-1)) ||
-			((this.getLacourt().getHallo() == 4) && (this.getLacourt().getAnio() == this.getGarcia().getAnio()-1)) ||
-			((this.getSiemann().getHallo() == 4) && (this.getSiemann().getAnio() == this.getGarcia().getAnio()-1)) ||
-			((this.getSmith().getHallo() == 4) && (this.getSmith().getAnio() == this.getGarcia().getAnio()-1)))
-		{valor += 15;}*/
-        if (this.getGarcia().getHallo() == 4){valor += 15;}
-
-        //4bis)... que lo hab�a robado al banquero(1).
-        if(((this.getGianuzzi().getAnio() + 1 == this.getGarcia().getAnio()) && (this.getGianuzzi().getEntrego() == 1)) ||
-                ((this.getLacourt().getAnio() + 1 == this.getGarcia().getAnio()) && (this.getLacourt().getEntrego() == 1)) ||
-                ((this.getSiemann().getAnio() + 1 == this.getGarcia().getAnio()) && (this.getSiemann().getEntrego() == 1)) ||
-                ((this.getSmith().getAnio() + 1 == this.getGarcia().getAnio()) && (this.getSmith().getEntrego() == 1)))
-        {valor += 15;}
-
-        //5)El �ltimo en recuperarlo lo entreg� a Interpol(3), para �lavar� sus delitos.
-        if (((this.getGarcia().getEntrego() == 3) && (this.getGarcia().getAnio() == 5)) ||
-                ((this.getGianuzzi().getEntrego() == 3) && (this.getGianuzzi().getAnio() == 5)) ||
-                ((this.getLacourt().getEntrego() == 3) && (this.getLacourt().getAnio() == 5)) ||
-                ((this.getSiemann().getEntrego() == 3) && (this.getSiemann().getAnio() == 5)) ||
-                ((this.getSmith().getEntrego() == 3) && (this.getSmith().getAnio() == 5)))
-        {valor += 15;}
-
-        //6)Zarnev(5) lo entreg� a un joyero(4). Treinta a�os antes, el ladr�n hab�a sido Siemann.
-        switch (this.getSiemann().getAnio()){
-            case 1: //1798 - entonces lo de Zarnev(5) y el joyero(4) fue en 1828(2)
-                if (((this.getGarcia().getEntrego() == 4) && (this.getGarcia().getHallo() == 5) && (this.getGarcia().getAnio() == 2)) ||
-                        ((this.getLacourt().getEntrego() == 4) && (this.getLacourt().getHallo() == 5) && (this.getLacourt().getAnio() == 2)) ||
-                        ((this.getSiemann().getEntrego() == 4) && (this.getSiemann().getHallo() == 5) && (this.getSiemann().getAnio() == 2)) ||
-                        ((this.getSmith().getEntrego() == 4) && (this.getSmith().getHallo() == 5) && (this.getSmith().getAnio() == 2)))
-                {valor += 15;}
-                break;
-            case 2: //1828 - entonces lo de Zarnev(5) y el joyero(4) fue en 1858(3)
-                if (((this.getGarcia().getEntrego() == 4) && (this.getGarcia().getHallo() == 5) && (this.getGarcia().getAnio() == 3)) ||
-                        ((this.getLacourt().getEntrego() == 4) && (this.getLacourt().getHallo() == 5) && (this.getLacourt().getAnio() == 3)) ||
-                        ((this.getSiemann().getEntrego() == 4) && (this.getSiemann().getHallo() == 5) && (this.getSiemann().getAnio() == 3)) ||
-                        ((this.getSmith().getEntrego() == 4) && (this.getSmith().getHallo() == 5) && (this.getSmith().getAnio() == 3)))
-                {valor += 15;}
-                break;
-            default: //para 1858, 1918 o 1978 no hay fechas validas
-                break;
-        }
-
-        //7)La entrega al museo(5) se produjo sesenta a�os despu�s del robo de Gianuzzi.
-        switch (this.getGianuzzi().getAnio()){
-            case 1: //1798 - entonces lo del Museo(5) fue en 1858(3)
-                if (((this.getGarcia().getEntrego() == 5) && (this.getGarcia().getAnio() == 3)) ||
-                        ((this.getLacourt().getEntrego() == 5) && (this.getLacourt().getAnio() == 3)) ||
-                        ((this.getSiemann().getEntrego() == 5) && (this.getSiemann().getAnio() == 3)) ||
-                        ((this.getSmith().getEntrego() == 5) && (this.getSmith().getAnio() == 3)))
-                {valor += 15;}
-                break;
-            case 3: //1858 - entonces lo del Museo(5) fue en 1918(4)
-                if (((this.getGarcia().getEntrego() == 5) && (this.getGarcia().getAnio() == 4)) ||
-                        ((this.getLacourt().getEntrego() == 5) && (this.getLacourt().getAnio() == 4)) ||
-                        ((this.getSiemann().getEntrego() == 5) && (this.getSiemann().getAnio() == 4)) ||
-                        ((this.getSmith().getEntrego() == 5) && (this.getSmith().getAnio() == 4)))
-                {valor += 15;}
-                break;
-            case 4: //1918 - entonces lo del Museo(5) fue en 1978(5)
-                if (((this.getGarcia().getEntrego() == 5) && (this.getGarcia().getAnio() == 5)) ||
-                        ((this.getLacourt().getEntrego() == 5) && (this.getLacourt().getAnio() == 5)) ||
-                        ((this.getSiemann().getEntrego() == 5) && (this.getSiemann().getAnio() == 5)) ||
-                        ((this.getSmith().getEntrego() == 5) && (this.getSmith().getAnio() == 5)))
-                {valor += 15;}
-                break;
-            default: //para 1828 o 1978 no hay fechas validas
-                break;
-        }
-
-        //8)Haanen(2) lo hall� en 1858(3).
-        if (((this.getGarcia().getHallo() == 2) && (this.getGarcia().getAnio() == 3)) ||
-                ((this.getGianuzzi().getHallo() == 2) && (this.getGianuzzi().getAnio() == 3)) ||
-                ((this.getLacourt().getHallo() == 2) && (this.getLacourt().getAnio() == 3)) ||
-                ((this.getSiemann().getHallo() == 2) && (this.getSiemann().getAnio() == 3)) ||
-                ((this.getSmith().getHallo() == 2) && (this.getSmith().getAnio() == 3)))
-        {valor += 15;}
-
-        //-----INVALIDA-----
-        //No deberia haber dos o mas Personas con algun atributo igual
-        if(!esValido(this.getGarcia(), this.getGianuzzi())) {valor -= 50;}
-        if(!esValido(this.getGarcia(), this.getLacourt())) {valor -= 50;}
-        if(!esValido(this.getGarcia(), this.getSiemann())) {valor -= 50;}
-        if(!esValido(this.getGarcia(), this.getSmith())) {valor -= 50;}
-
-        if(!esValido(this.getGianuzzi(), this.getLacourt())) {valor -= 50;}
-        if(!esValido(this.getGianuzzi(), this.getSiemann())) {valor -= 50;}
-        if(!esValido(this.getGianuzzi(), this.getSmith())) {valor -= 50;}
-
-        if(!esValido(this.getLacourt(), this.getSiemann())) {valor -= 50;}
-        if(!esValido(this.getLacourt(), this.getSmith())) {valor -= 50;}
-
-        if(!esValido(this.getSiemann(), this.getSmith())) {valor -= 50;}
+//        1. La persona que está en el medio mira Desperate Housewives
+//        2. Bob es el primero en la cola
+//        3. La persona que ve a los Simpson está al lado de la persona que vive en un albergue juvenil
+//        4. La persona que va a África está detrás de Rachael
+//        5. La persona que vive en un pueblo tiene 52 años
+//        6. La persona que va a Australia tiene el pelo liso
+//        7. La persona que viaja a África mira Desperate Housewives
+//        8. El jugador de 14 años está al final de la cola
+//        9. Amy mira a Eastenders
+//        10. La persona que va a Italia tiene el pelo largo
+//        11. Keeley vive en un pueblo
+//        12. El joven de 46 años es calvo
+//        13. El cuarto en la cola va a Inglaterra
+//        14. Las personas que ven Desperate Housewives y Neighbors están uno atras del otro
+//        15. La persona que mira Coronation Street está al lado de la persona con un afro
+//        16. La persona que le sigue a en la fila Rachael tiene un afro
+//        17. El joven de 21 años vive en un albergue juvenil
+//        18. La persona que mira Corrie tiene el pelo largo
+//        19. El de 81 años vive en una granja
+//        20. La persona que viaja a Francia vive en una ciudad
+//        21. Eilish no está al lado de la persona con el pelo liso
+        
         return valor;
     }
-    
+
 
     @Override
     public boolean esMasAptoQue(Individuo individuo) {
