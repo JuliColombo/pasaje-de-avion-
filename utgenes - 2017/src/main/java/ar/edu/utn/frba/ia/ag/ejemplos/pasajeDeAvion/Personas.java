@@ -248,14 +248,7 @@ public class Personas extends Individuo{
         if(!esValido(this.getSiemann(), this.getSmith())) {valor -= 50;}
         return valor;
     }
-
-    public boolean esValido (Persona ladri1, Persona ladri2){
-        boolean res;
-        res = ((ladri1.getAnio() != ladri2.getAnio()) &&
-                (ladri1.getHallo() != ladri2.getHallo()) &&
-                (ladri1.getEntrego() != ladri2.getEntrego()));
-        return res;
-    }
+    
 
     @Override
     public boolean esMasAptoQue(Individuo individuo) {
