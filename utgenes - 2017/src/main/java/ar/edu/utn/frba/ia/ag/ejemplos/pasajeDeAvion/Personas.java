@@ -142,14 +142,19 @@ public class Personas extends Individuo{
         return valor + 10;
     }
 
+    public double sumarAptitudSiCumple(double valor, boolean condicion) {
+        if(condicion){
+            return sumarAptitud(valor);
+        }
+        return valor;
+    }
+
     public double aptitud() {
 
         double valor = 0;
 //        1. La persona que está en el medio mira Desperate Housewives
 //        2. Bob es el primero en la cola
-            if(getBob().getPosicion() == 1){
-                sumarAptitud(valor);
-            }
+            valor = sumarAptitudSiCumple(valor, getBob().getPosicion() == 1);
 //        3. La persona que ve a los Simpson está al lado de la persona que vive en un albergue juvenil
 //        4. La persona que va a África está detrás de Rachael
 //        5. La persona que vive en un pueblo tiene 52 años
@@ -157,11 +162,10 @@ public class Personas extends Individuo{
 //        7. La persona que viaja a África mira Desperate Housewives
 //        8. El jugador de 14 años está al final de la cola
 //        9. Amy mira a Eastenders
-            if(getAmy().getPrograma() == "Eastenders"){
-                sumarAptitud(valor);
-            }
+            valor = sumarAptitudSiCumple(valor, getAmy().getPrograma().equals("Eastenders"));
 //        10. La persona que va a Italia tiene el pelo largo
 //        11. Keeley vive en un pueblo
+            valor = sumarAptitudSiCumple(valor, getKeeley().getLugar().equals("pueblo"));
 //        12. El joven de 46 años es calvo
 //        13. El cuarto en la cola va a Inglaterra
 //        14. Las personas que ven Desperate Housewives y Neighbors están uno atras del otro
