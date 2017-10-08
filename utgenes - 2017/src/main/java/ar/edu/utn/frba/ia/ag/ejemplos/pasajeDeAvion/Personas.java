@@ -162,8 +162,9 @@ public class Personas extends Individuo{
 //        1. La persona que está en el medio mira Desperate Housewives
             condicion = getBob().getPosicion() == 3 && getBob().getPrograma().equals(DESPERATE_HOUSWIVES) ||
                         getKeeley().getPosicion() == 3 && getKeeley().getPrograma().equals(DESPERATE_HOUSWIVES) ||
-                        getRachael().getPosicion() == 3 && getKeeley().getPrograma().equals(DESPERATE_HOUSWIVES) ||
-                        getAmy().getPosicion() == 3 && getAmy().getPrograma().equals(DESPERATE_HOUSWIVES);
+                        getRachael().getPosicion() == 3 && getRachael().getPrograma().equals(DESPERATE_HOUSWIVES) ||
+                        getAmy().getPosicion() == 3 && getAmy().getPrograma().equals(DESPERATE_HOUSWIVES) ||
+                        getEilish().getPosicion() == 3 && getEilish().getPrograma().equals(DESPERATE_HOUSWIVES);
             valor = sumarAptitudSiCumple(valor, condicion);
 //        2. Bob es el primero en la cola
             valor = sumarAptitudSiCumple(valor, getBob().getPosicion() == 1);
