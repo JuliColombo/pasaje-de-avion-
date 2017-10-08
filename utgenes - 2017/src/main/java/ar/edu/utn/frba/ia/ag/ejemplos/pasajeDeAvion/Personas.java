@@ -22,6 +22,12 @@ public class Personas extends Individuo{
         this.setProgramas();
     }
 
+    public static final String SIMPSON = "Los Simpson";
+    public static final String CORONATION_STREET = "Coronation Street";
+    public static final String EASTENDERS = "Eastenders";
+    public static final String DESPERATE_HOUSWIVES = "Desperate Houswives";
+    public static final String NEIGHBORS = "Neighbors";
+
     private static ArrayList<Integer> posiciones;
     private static ArrayList<Integer> edades;
     private static ArrayList<String> peinados;
@@ -111,7 +117,7 @@ public class Personas extends Individuo{
     }
 
     public ArrayList<String> getDestinos() {
-        return this.destinoss;
+        return this.destinos;
     }
 
     public void setDestinos() {
@@ -131,11 +137,11 @@ public class Personas extends Individuo{
     }
 
     public void setProgramas() {
-        this.programas = new ArrayList<String>(Arrays.asList("Los Simpson",
-                                                             "Coronation Street",
-                                                             "Eastenders",
-                                                             "Desperate Houswives",
-                                                             "Neigbors"));
+        this.programas = new ArrayList<String>(Arrays.asList(SIMPSON,
+                                                             CORONATION_STREET,
+                                                             EASTENDERS,
+                                                             DESPERATE_HOUSWIVES,
+                                                             NEIGHBORS));
     }
 
     public double sumarAptitud(double valor) {
@@ -152,7 +158,13 @@ public class Personas extends Individuo{
     public double aptitud() {
 
         double valor = 0;
+        boolean condicion;
 //        1. La persona que está en el medio mira Desperate Housewives
+            condicion = getBob().getPosicion() == 3 && getBob().getPrograma().equals(DESPERATE_HOUSWIVES) ||
+                        getKeeley().getPosicion() == 3 && getKeeley().getPrograma().equals(DESPERATE_HOUSWIVES) ||
+                        getRachael().getPosicion() == 3 && getKeeley().getPrograma().equals(DESPERATE_HOUSWIVES) ||
+                        getAmy().getPosicion() == 3 && getAmy().getPrograma().equals(DESPERATE_HOUSWIVES);
+            valor = sumarAptitudSiCumple(valor, condicion);
 //        2. Bob es el primero en la cola
             valor = sumarAptitudSiCumple(valor, getBob().getPosicion() == 1);
 //        3. La persona que ve a los Simpson está al lado de la persona que vive en un albergue juvenil
@@ -162,7 +174,7 @@ public class Personas extends Individuo{
 //        7. La persona que viaja a África mira Desperate Housewives
 //        8. El jugador de 14 años está al final de la cola
 //        9. Amy mira a Eastenders
-            valor = sumarAptitudSiCumple(valor, getAmy().getPrograma().equals("Eastenders"));
+            valor = sumarAptitudSiCumple(valor, getAmy().getPrograma().equals(EASTENDERS));
 //        10. La persona que va a Italia tiene el pelo largo
 //        11. Keeley vive en un pueblo
             valor = sumarAptitudSiCumple(valor, getKeeley().getLugar().equals("pueblo"));
