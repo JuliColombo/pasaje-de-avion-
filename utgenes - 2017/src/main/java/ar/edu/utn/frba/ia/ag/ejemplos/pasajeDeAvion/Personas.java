@@ -155,19 +155,68 @@ public class Personas extends Individuo{
         return valor;
     }
 
+    public boolean estaAdelante(int posicion1, int posicion2) {
+        return posicion1 == posicion2 - 1;
+    }
+
+    public boolean estaAtras(int posicion1, int posicion2) {
+        return posicion1 == posicion2 + 1;
+    }
+
+    public boolean estaAlLado(int posicion1, int posicion2) {
+        return estaAdelante(posicion1, posicion2) || estaAtras(posicion1, posicion2);
+    }
+
     public double aptitud() {
 
         double valor = 0;
         boolean condicion;
+
+        int posicionBob = getBob().getPosicion();
+        int posicionKeeley = getKeeley().getPosicion();
+        int posicionRachael = getRachael().getPosicion();
+        int posicionAmy = getAmy().getPosicion();
+        int posicionEilish = getEilish().getPosicion();
+
+        int edadBob = getBob().getEdad();
+        int edadKeeley = getKeeley().getEdad();
+        int edadRachael = getRachael().getEdad();
+        int edadAmy = getAmy().getEdad();
+        int edadEilish = getEilish().getEdad();
+
+        String peinadoBob = getBob().getPeinado();
+        String peinadoKeeley = getKeeley().getPeinado();
+        String peinadoRachael = getRachael().getPeinado();
+        String peinadoAmy = getAmy().getPeinado();
+        String peinadoEilish = getEilish().getPeinado();
+
+        String destinoBob = getBob().getDestino();
+        String destinoKeeley = getKeeley().getDestino();
+        String destinoRachael = getRachael().getDestino();
+        String destinoAmy = getAmy().getDestino();
+        String destinoEilish = getEilish().getDestino();
+
+        String lugarBob = getBob().getLugar();
+        String lugarKeeley = getKeeley().getLugar();
+        String lugarRachael = getRachael().getLugar();
+        String lugarAmy = getAmy().getLugar();
+        String lugarEilish = getEilish().getLugar();
+
+        String programaBob = getBob().getPrograma();
+        String programaKeeley = getKeeley().getPrograma();
+        String programaRachael = getRachael().getPrograma();
+        String programaAmy = getAmy().getPrograma();
+        String programaEilish = getEilish().getPrograma();
+
 //        1. La persona que está en el medio mira Desperate Housewives
-            condicion = getBob().getPosicion() == 3 && getBob().getPrograma().equals(DESPERATE_HOUSWIVES) ||
-                        getKeeley().getPosicion() == 3 && getKeeley().getPrograma().equals(DESPERATE_HOUSWIVES) ||
-                        getRachael().getPosicion() == 3 && getRachael().getPrograma().equals(DESPERATE_HOUSWIVES) ||
-                        getAmy().getPosicion() == 3 && getAmy().getPrograma().equals(DESPERATE_HOUSWIVES) ||
-                        getEilish().getPosicion() == 3 && getEilish().getPrograma().equals(DESPERATE_HOUSWIVES);
+            condicion = posicionBob == 3 && programaBob.equals(DESPERATE_HOUSWIVES) ||
+                        posicionKeeley == 3 && programaKeeley.equals(DESPERATE_HOUSWIVES) ||
+                        posicionRachael == 3 && programaRachael.equals(DESPERATE_HOUSWIVES) ||
+                        posicionAmy == 3 && programaAmy.equals(DESPERATE_HOUSWIVES) ||
+                        posicionEilish == 3 && programaEilish.equals(DESPERATE_HOUSWIVES);
             valor = sumarAptitudSiCumple(valor, condicion);
 //        2. Bob es el primero en la cola
-            valor = sumarAptitudSiCumple(valor, getBob().getPosicion() == 1);
+            valor = sumarAptitudSiCumple(valor, posicionBob == 1);
 //        3. La persona que ve a los Simpson está al lado de la persona que vive en un albergue juvenil
 //        4. La persona que va a África está detrás de Rachael
 //        5. La persona que vive en un pueblo tiene 52 años
@@ -175,10 +224,10 @@ public class Personas extends Individuo{
 //        7. La persona que viaja a África mira Desperate Housewives
 //        8. El jugador de 14 años está al final de la cola
 //        9. Amy mira a Eastenders
-            valor = sumarAptitudSiCumple(valor, getAmy().getPrograma().equals(EASTENDERS));
+            valor = sumarAptitudSiCumple(valor, programaAmy.equals(EASTENDERS));
 //        10. La persona que va a Italia tiene el pelo largo
 //        11. Keeley vive en un pueblo
-            valor = sumarAptitudSiCumple(valor, getKeeley().getLugar().equals("pueblo"));
+            valor = sumarAptitudSiCumple(valor, lugarKeeley.equals("pueblo"));
 //        12. El joven de 46 años es calvo
 //        13. El cuarto en la cola va a Inglaterra
 //        14. Las personas que ven Desperate Housewives y Neighbors están uno atras del otro

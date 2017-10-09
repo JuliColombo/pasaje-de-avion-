@@ -21,7 +21,7 @@ public class Persona {
      *3 - 3
      *4 - 4
      *5 - 5*/
-    private Integer Edad;
+    private Integer edad;
     /*1 - 14
      *2 - 21
      *3 - 46
