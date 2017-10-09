@@ -171,6 +171,11 @@ public class Personas extends Individuo{
 
         double valor = 0;
         boolean condicion;
+        boolean condicionBob;
+        boolean condicionKeeley;
+        boolean condicionRachael;
+        boolean condicionAmy;
+        boolean condicionEilish;
 
         int posicionBob = getBob().getPosicion();
         int posicionKeeley = getKeeley().getPosicion();
@@ -215,10 +220,42 @@ public class Personas extends Individuo{
                         posicionAmy == 3 && programaAmy.equals(DESPERATE_HOUSWIVES) ||
                         posicionEilish == 3 && programaEilish.equals(DESPERATE_HOUSWIVES);
             valor = sumarAptitudSiCumple(valor, condicion);
+
 //        2. Bob es el primero en la cola
             valor = sumarAptitudSiCumple(valor, posicionBob == 1);
+
 //        3. La persona que ve a los Simpson está al lado de la persona que vive en un albergue juvenil
+            condicionBob = programaBob.equals(SIMPSON) && (estaAlLado(posicionBob, posicionKeeley) && lugarKeeley.equals("albergue juvenil") ||
+                           estaAlLado(posicionBob, posicionRachael) && lugarRachael.equals("albergue juvenil") ||
+                           estaAlLado(posicionBob, posicionAmy) && lugarAmy.equals("albergue juvenil") ||
+                           estaAlLado(posicionBob, posicionEilish) && lugarEilish.equals("albergue juvenil"));
+            condicionKeeley = programaKeeley.equals(SIMPSON) && (estaAlLado(posicionKeeley, posicionBob) && lugarBob.equals("albergue juvenil") ||
+                              estaAlLado(posicionKeeley, posicionRachael) && lugarRachael.equals("albergue juvenil") ||
+                              estaAlLado(posicionKeeley, posicionAmy) && lugarAmy.equals("albergue juvenil") ||
+                              estaAlLado(posicionKeeley, posicionEilish) && lugarEilish.equals("albergue juvenil"));
+            condicionRachael = programaRachael.equals(SIMPSON) && (estaAlLado(posicionRachael, posicionBob) && lugarBob.equals("albergue juvenil") ||
+                               estaAlLado(posicionRachael, posicionKeeley) && lugarKeeley.equals("albergue juvenil") ||
+                               estaAlLado(posicionRachael, posicionAmy) && lugarAmy.equals("albergue juvenil") ||
+                               estaAlLado(posicionEilish, posicionEilish) && lugarEilish.equals("albergue juvenil"));
+            condicionAmy = programaAmy.equals(SIMPSON) && (estaAlLado(posicionAmy, posicionBob) && lugarBob.equals("albergue juvenil") ||
+                           estaAlLado(posicionAmy, posicionKeeley) && lugarKeeley.equals("albergue juvenil") ||
+                           estaAlLado(posicionAmy, posicionRachael) && lugarRachael.equals("albergue juvenil") ||
+                           estaAlLado(posicionAmy, posicionEilish) && lugarEilish.equals("albergue juvenil"));
+            condicionEilish = programaEilish.equals(SIMPSON) && (estaAlLado(posicionEilish, posicionBob) && lugarBob.equals("albergue juvenil") ||
+                              estaAlLado(posicionEilish, posicionKeeley) && lugarKeeley.equals("albergue juvenil") ||
+                              estaAlLado(posicionEilish, posicionRachael) && lugarRachael.equals("albergue juvenil") ||
+                              estaAlLado(posicionEilish, posicionAmy) && lugarAmy.equals("albergue juvenil"));
+            condicion = condicionBob || condicionKeeley || condicionRachael || condicionAmy || condicionEilish;
+            valor = sumarAptitudSiCumple(valor, condicion);
+
 //        4. La persona que va a África está detrás de Rachael
+            condicionBob = destinoBob.equals("África") && estaAtras(posicionBob, posicionRachael);
+            condicionKeeley = destinoKeeley.equals("África") && estaAtras(posicionKeeley, posicionRachael);
+            condicionAmy = destinoAmy.equals("África") && estaAtras(posicionAmy, posicionRachael);
+            condicionEilish = destinoEilish.equals("África") && estaAtras(posicionEilish, posicionRachael);
+            condicion = condicionBob || condicionKeeley || condicionRachael || condicionAmy || condicionEilish;
+            valor = sumarAptitudSiCumple(valor, condicion);
+        
 //        5. La persona que vive en un pueblo tiene 52 años
 //        6. La persona que va a Australia tiene el pelo liso
 //        7. La persona que viaja a África mira Desperate Housewives
