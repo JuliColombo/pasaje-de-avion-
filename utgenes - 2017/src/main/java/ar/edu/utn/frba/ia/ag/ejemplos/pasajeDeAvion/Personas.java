@@ -536,12 +536,11 @@ public class Personas extends Individuo{
     @Override
     public String toString() {
 
-        return "-AÑO.HALLO.ENTREGO-\n" +
-                "GARCIA: " + this.getGarcia().getAnio() + "." + this.getGarcia().getHallo() + "." + this.getGarcia().getEntrego() + "\n" +
-                "GIANUZZI: " + this.getGianuzzi().getAnio() + "." + this.getGianuzzi().getHallo() + "." + this.getGianuzzi().getEntrego() + "\n" +
-                "LACOURT: " + this.getLacourt().getAnio() + "." + this.getLacourt().getHallo() + "." + this.getLacourt().getEntrego() + "\n" +
-                "SIEMANN: " + this.getSiemann().getAnio() + "." + this.getSiemann().getHallo() + "." + this.getSiemann().getEntrego() + "\n" +
-                "SMITH: " + this.getSmith().getAnio() + "." + this.getSmith().getHallo() + "." + this.getSmith().getEntrego() + "\n" +
+        return  "Bob: " + this.getBob().getPosicion() + "." + this.getBob().getEdad() + "." + this.getBob().getPeinado() + "\n" +
+                "Keeley: " + this.getKeeley().getPosicion() + "." + this.getKeeley().getEdad() + "." + this.getKeeley().getPeinado() + "\n" +
+                "Rachael: " + this.getRachael().getPosicion() + "." + this.getRachael().getEdad() + "." + this.getRachael().getPeinado() + "\n" +
+                "Amy: " + this.getAmy().getPosicion() + "." + this.getAmy().getEdad() + "." + this.getAmy().getPeinado() + "\n" +
+                "Eilish: " + this.getEilish().getPosicion() + "." + this.getEilish().getEdad() + "." + this.getEilish().getPeinado() + "\n" +
                 "<<APTO>>: " + this.aptitud();
     }
 }
