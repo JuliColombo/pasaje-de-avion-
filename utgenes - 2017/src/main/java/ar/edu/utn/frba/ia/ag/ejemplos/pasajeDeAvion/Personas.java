@@ -456,14 +456,6 @@ public class Personas extends Individuo{
                            listaDestinos.get(4),
                            listaLugares.get(4),
                            listaProgramas.get(4)));
-
-		/* SOLUCI�N DEL PROBLEMA
-		setGarcia(new Persona(4,4,5));
-		setGianuzzi(new Persona(3,2,1));
-		setLacourt(new Persona(2,5,4));
-		setSiemann(new Persona(1,1,2));
-		setSmith(new Persona(5,3,3));
-		*/
     }
 
     public ArrayList listaRandom(ArrayList array){
