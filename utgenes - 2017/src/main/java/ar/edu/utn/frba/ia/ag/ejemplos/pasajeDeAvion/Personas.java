@@ -476,11 +476,36 @@ public class Personas extends Individuo{
     public String toString() {
 
         return  "-POSICION.EDAD.PEINADO.DESTINO.LUGAR.PROGRAMA-\n" +
-                "Bob: " + this.getBob().getPosicion() + "." + this.getBob().getEdad() + "." + this.getBob().getPeinado() + "\n" +
-                "Keeley: " + this.getKeeley().getPosicion() + "." + this.getKeeley().getEdad() + "." + this.getKeeley().getPeinado() + "\n" +
-                "Rachael: " + this.getRachael().getPosicion() + "." + this.getRachael().getEdad() + "." + this.getRachael().getPeinado() + "\n" +
-                "Amy: " + this.getAmy().getPosicion() + "." + this.getAmy().getEdad() + "." + this.getAmy().getPeinado() + "\n" +
-                "Eilish: " + this.getEilish().getPosicion() + "." + this.getEilish().getEdad() + "." + this.getEilish().getPeinado() + "\n" +
+                "Bob: " + this.getBob().getPosicion() + "." +
+                            this.getBob().getEdad() + "." +
+                            this.getBob().getPeinado() +
+                            this.getBob().getDestino() + "." +
+                            this.getBob().getLugar() + "." +
+                            this.getBob().getPrograma() + "\n" +
+                "Keeley: " + this.getKeeley().getPosicion() + "." +
+                            this.getKeeley().getEdad() + "." +
+                            this.getKeeley().getPeinado() +
+                            this.getKeeley().getDestino() + "." +
+                            this.getKeeley().getLugar() + "." +
+                            this.getKeeley().getPrograma() + "\n" +
+                "Rachael: " + this.getRachael().getPosicion() + "." +
+                                this.getRachael().getEdad() + "." +
+                                this.getRachael().getPeinado() +
+                                this.getRachael().getDestino() + "." +
+                                this.getRachael().getLugar() + "." +
+                                this.getRachael().getPrograma() + "\n" +
+                "Amy: " + this.getAmy().getPosicion() + "." +
+                            this.getAmy().getEdad() + "." +
+                            this.getAmy().getPeinado() +
+                            this.getAmy().getDestino() + "." +
+                            this.getAmy().getLugar() + "." +
+                            this.getAmy().getPrograma() + "\n" +
+                "Eilish: " + this.getEilish().getPosicion() + "." +
+                            this.getEilish().getEdad() + "." +
+                            this.getEilish().getPeinado() +
+                            this.getEilish().getDestino() + "." +
+                            this.getEilish().getLugar() + "." +
+                            this.getEilish().getPrograma() + "\n" +
                 "<<APTO>>: " + this.aptitud();
     }
 }
