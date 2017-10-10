@@ -4,8 +4,6 @@ package main.java.ar.edu.utn.frba.ia.ag.ejemplos.pasajeDeAvion;
  * Created by julicolombo on 10/7/17.
  */
 public class Persona {
-    public Persona(){}
-
     public Persona(Integer unaPosicion, Integer unaEdad, String unPeinado, String unDestino, String unLugar, String unPrograma){
         setPosicion(unaPosicion);
         setEdad(unaEdad);

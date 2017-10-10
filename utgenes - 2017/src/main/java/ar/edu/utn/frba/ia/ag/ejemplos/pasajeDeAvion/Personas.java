@@ -14,26 +14,8 @@ public class Personas extends Individuo{
     public Personas(){
         this.setRandom(new Random());
         this.setearRandom();
-        this.setPosiones();
-        this.setEdades();
-        this.setPeinados();
-        this.setDestinos();
-        this.setLugares();
-        this.setProgramas();
     }
 
-    public static final String SIMPSON = "Los Simpson";
-    public static final String CORONATION_STREET = "Coronation Street";
-    public static final String EASTENDERS = "Eastenders";
-    public static final String DESPERATE_HOUSWIVES = "Desperate Houswives";
-    public static final String NEIGHBORS = "Neighbors";
-
-    private static ArrayList<Integer> posiciones;
-    private static ArrayList<Integer> edades;
-    private static ArrayList<String> peinados;
-    private static ArrayList<String> destinos;
-    private static ArrayList<String> lugares;
-    private static ArrayList<String> programas;
 
     private Persona bob;
     private Persona keeley;
@@ -92,57 +74,6 @@ public class Personas extends Individuo{
         this.amy = amy;
     }
 
-    public ArrayList<Integer> getPosiones() {
-        return this.posiciones;
-    }
-
-    public void setPosiones() {
-        this.posiciones = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
-    }
-
-    public ArrayList<Integer> getEdades() {
-        return this.edades;
-    }
-
-    public void setEdades() {
-        this.edades = new ArrayList<Integer>(Arrays.asList(14, 21, 46, 52, 81));
-    }
-
-    public ArrayList<String> getPeinados() {
-        return this.peinados;
-    }
-
-    public void setPeinados() {
-        this.peinados = new ArrayList<String>(Arrays.asList("afro", "largo", "liso", "rizado", "calvo"));
-    }
-
-    public ArrayList<String> getDestinos() {
-        return this.destinos;
-    }
-
-    public void setDestinos() {
-        this.destinos = new ArrayList<String>(Arrays.asList("Francia", "Australia", "Inglaterra", "África", "Italia"));
-    }
-
-    public ArrayList<String> getLugares() {
-        return this.lugares;
-    }
-
-    public void setLugares() {
-        this.lugares = new ArrayList<String>(Arrays.asList("hotel", "ciudad", "pueblo", "granja", "albergue juvenil"));
-    }
-
-    public ArrayList<String> getProgramas() {
-        return this.programas;
-    }
-
-    public void setProgramas() {
-        this.programas = new ArrayList<String>(Arrays.asList(SIMPSON,
-                                                             CORONATION_STREET,
-                                                             EASTENDERS,
-                                                             DESPERATE_HOUSWIVES,
-                                                             NEIGHBORS));
-    }
 
     public double sumarAptitud(double valor) {
         return valor + 10;
@@ -168,6 +99,12 @@ public class Personas extends Individuo{
     }
 
     public double aptitud() {
+
+        String DESPERATE_HOUSWIVES = PasajeDeAvion.DESPERATE_HOUSWIVES;
+        String SIMPSON = PasajeDeAvion.DESPERATE_HOUSWIVES;
+        String CORONATION_STREET = PasajeDeAvion.CORONATION_STREET;
+        String EASTENDERS = PasajeDeAvion.EASTENDERS;
+        String NEIGHBORS = PasajeDeAvion.NEIGHBORS;
 
         double valor = 0;
         boolean condicion;
@@ -480,12 +417,14 @@ public class Personas extends Individuo{
     }
 
     public void setearRandom(){
-        ArrayList<Integer> listaPosiciones = listaRandom(getPosiones());
-        ArrayList<Integer> listaEdades = listaRandom(getEdades());
-        ArrayList<String> listaPeinados = listaRandom(getPeinados());
-        ArrayList<String> listaDestinos = listaRandom(getDestinos());
-        ArrayList<String> listaLugares = listaRandom(getLugares());
-        ArrayList<String> listaProgramas = listaRandom(getProgramas());
+        PasajeDeAvion pasajeDeAvion = new PasajeDeAvion();
+
+        ArrayList<Integer> listaPosiciones = listaRandom(pasajeDeAvion.getPosiones());
+        ArrayList<Integer> listaEdades = listaRandom(pasajeDeAvion.getEdades());
+        ArrayList<String> listaPeinados = listaRandom(pasajeDeAvion.getPeinados());
+        ArrayList<String> listaDestinos = listaRandom(pasajeDeAvion.getDestinos());
+        ArrayList<String> listaLugares = listaRandom(pasajeDeAvion.getLugares());
+        ArrayList<String> listaProgramas = listaRandom(pasajeDeAvion.getProgramas());
 
         setBob(new Persona(listaPosiciones.get(0),
                            listaEdades.get(0),
@@ -509,7 +448,7 @@ public class Personas extends Individuo{
                               listaEdades.get(3),
                               listaPeinados.get(3),
                               listaDestinos.get(3),
-                              listaLugares.get(03),
+                              listaLugares.get(3),
                               listaProgramas.get(3)));
         setAmy(new Persona(listaPosiciones.get(4),
                            listaEdades.get(4),
@@ -536,7 +475,8 @@ public class Personas extends Individuo{
     @Override
     public String toString() {
 
-        return  "Bob: " + this.getBob().getPosicion() + "." + this.getBob().getEdad() + "." + this.getBob().getPeinado() + "\n" +
+        return  "-POSICION.EDAD.PEINADO.DESTINO.LUGAR.PROGRAMA-\n" +
+                "Bob: " + this.getBob().getPosicion() + "." + this.getBob().getEdad() + "." + this.getBob().getPeinado() + "\n" +
                 "Keeley: " + this.getKeeley().getPosicion() + "." + this.getKeeley().getEdad() + "." + this.getKeeley().getPeinado() + "\n" +
                 "Rachael: " + this.getRachael().getPosicion() + "." + this.getRachael().getEdad() + "." + this.getRachael().getPeinado() + "\n" +
                 "Amy: " + this.getAmy().getPosicion() + "." + this.getAmy().getEdad() + "." + this.getAmy().getPeinado() + "\n" +
